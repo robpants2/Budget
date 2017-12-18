@@ -36,6 +36,7 @@ $(document).ready(function() {
 
 	//Get accounts from DB
 	//Get categories from DB
+	//Test Comment
 
 	init_controls();
 	init_accounts();
