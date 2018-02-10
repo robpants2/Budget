@@ -1,3 +1,4 @@
+
 html {
 	font-family: "Segoe UI",Arial,sans-serif;
 	height: 100%;
@@ -22,6 +23,11 @@ ul {
 
 table {
 	border-collapse: collapse
+}
+
+.button {
+	height: 30px;
+	padding: 0px 15px;
 }
 
 /*-- Navigation Bar -------------------------------------------------------------------*/
@@ -110,6 +116,7 @@ table {
 	width: 80%;
 	height: 100%;
 	box-sizing: border-box;
+	padding: 0px 5px;
 }
 
 #info-search-submit {
@@ -183,11 +190,66 @@ table {
 	box-shadow: -2px 0px 8px rgba(40,40,40,0.4);
 }
 
+.form {
+	background-color: inherit;
+}
+
 .form-title {
 	font-size: 20px;
 	font-weight: bold;
+	margin: -15px;
+	margin-bottom: 10px;
+	padding: 15px;
+	background-color: #333;
+	color: white;
 }
 
+.form-heading {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+.form-input {
+	width: 100%;
+	padding: 3px 5px;
+	box-sizing: border-box;
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+.form-new-cat-cont {
+	padding: 2px 15px;
+	margin-bottom: 10px;
+}
+
+.form-new-cat-box {
+	overflow: hidden;
+	height: 0px;
+	transition: all 0.5s;
+	background-color: inherit;
+	position: relative;
+	margin-top: 0px;
+}
+
+.form-buttons {
+	position: absolute;
+	bottom: 15px;
+	width: calc(100% - 30px);
+	background-color: inherit;
+}
+
+.form-button-submit {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}
+
+.form-button-cancel {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+}
 
 
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -146,8 +147,40 @@
 		</div>
 
 		<div id="form-cont">
-			<div id="form-add-expense">
+
+			<div id="form-add-expense" class="form">
 				<div class="form-title">Add Item</div>
+				<div class="form-heading">Date</div>
+				<input class="form-input" type="text" value="12/31/2017">
+				<div class="form-heading">Description</div>
+				<input class="form-input" type="text" value="Description">
+				<div class="form-heading">Amount</div>
+				<input class="form-input" type="text" value="125.50">
+				<div class="form-heading">Category</div>
+				<select class="form-input">
+					<option value="1">Misc</option>
+					<option value="2">Groceries</option>
+					<option value="3">Rent</option>
+				</select>
+				<div class="form-new-cat-box">
+					<div class="form-new-cat-cont">
+						<div class="form-heading">Name</div>
+						<input class="form-input" type="text" value="">
+						<div class="form-heading">Budget (optional)</div>
+						<input class="form-input" type="text" value="">
+						<div class="form-heading">Category Type</div>
+						<select class="form-input">
+							<option value="0">Spending</option>
+							<option value="1">Deposit</option>
+						</select>
+					</div>
+				</div>
+				<input class="form-button-new-cat form-input" type="button" value="Create New Category">
+				<div class="form-buttons">
+					<input class="form-button-cancel button" type="button" value="Cancel">
+					<input class="form-button-submit button" type="button" value="Submit">
+				</div>
+
 			</div>
 		</div>
 

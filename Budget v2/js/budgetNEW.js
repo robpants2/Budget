@@ -14,6 +14,7 @@ $(document).ready(function() {
 
 	initClickEvents();
 
+	$("#nav-control-add-expense").trigger('click');
 });
 
 
@@ -63,9 +64,34 @@ function initClickEvents() {
 	$("#nav-control-add-expense").unbind('click').click(function() {
 		var formWidth = $("#form-cont").outerWidth();
 
-		console.log($("#form-cont").css("right"));
 		if (parseInt($("#form-cont").css("right")) < 0) {
 			$("#form-cont").css("right", 0);
+		}
+	});
+
+	$(".form-button-cancel").unbind('click').click(function() {
+		$("#form-cont").css("right", -300);
+	});
+
+	$(".form-button-new-cat").unbind('click').click(function() {
+		var $box = $(this).parent().find($(".form-new-cat-box"));
+
+		if ($box.height() <= 0) {
+			$box.css("height","200px");
+			$box.css("margin-top","-42px");
+			$(this).val("Use Existing Category");
+			$()
+		}
+		else {
+			$box.css("height", "0px");
+			$box.css("margin-top", "0px");
+			$(this).val("Create New Category");
+		}
+	});
+
+	$("html").unbind('click').click(function() {
+		if (!$("#form-cont").is(":hover") && parseInt($("#form-cont").css("right")) >= 0) {
+			$("#form-cont").css("right", -300);
 		}
 	});
 }
