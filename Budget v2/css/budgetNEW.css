@@ -5,6 +5,10 @@ html {
 	background: linear-gradient(white, #d0dfe4);
 }
 
+body {
+	margin: 0px;
+}
+
 h1, h2, h3, h4 {
 	margin-top: 0px;
 	margin-bottom: 10px;
@@ -30,12 +34,31 @@ table {
 	padding: 0px 15px;
 }
 
+.cal-button {
+	vertical-align: top;
+	height: 26px;
+}
+
+#overlay-back {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 100vh;
+	width: 100vw;
+	z-index: 1550;
+	transition: opacity 0.5s;
+	transition-duration: 0.5s;
+	/*display: none;*/
+	background-color: black;
+	opacity: 0;
+}
+
 /*-- Navigation Bar -------------------------------------------------------------------*/
 #nav-cont {
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	width: 40px;
+	width: 50px;
 	height: 100vh;
 	background-color: gray;
 	z-index: 1500;
@@ -53,8 +76,8 @@ table {
 }
 
 .nav-control {
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 	background-color: #444;
 	position: relative;
 	margin: 10px auto;
@@ -95,7 +118,7 @@ table {
 #info-cont {
 	position: fixed;
 	top: 0px;
-	left: 40px;
+	left: -300px;
 	width: 300px;
 	height: 100vh;
 	background-color: lightgray;
@@ -171,7 +194,11 @@ table {
 	background-color: white;
 }
 
-
+#info-nav-control-cont {
+	height: 50px;
+	width: 100%;
+	display: none;
+}
 
 
 
@@ -184,7 +211,7 @@ table {
 	height: 100vh;
 	background-color: lightgray;
 	transition: right 0.5s;
-	z-index: 1450;
+	z-index: 1600;
 	box-sizing: border-box;
 	padding: 15px;
 	box-shadow: -2px 0px 8px rgba(40,40,40,0.4);
@@ -216,6 +243,11 @@ table {
 	box-sizing: border-box;
 	font-size: 14px;
 	margin-bottom: 15px;
+}
+
+.form-date {
+	width: 80%;
+	margin-right: -5px;
 }
 
 .form-new-cat-cont {
@@ -383,4 +415,100 @@ table {
 }
 
 
+
+
+/*-- Expenses ------------------------------------------------------------------*/
+#expenses-cont {
+	width: calc(100% - 50px);
+	height: 100%;
+	margin-left: 50px;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+#expenses-table {
+	border: 1px solid black;
+	width: 70%;
+	min-width: 700px;
+	max-width: 1500px;
+	margin: auto;
+	height: 400px;
+	box-sizing: border-box;
+}
+
+#expenses-heading-nav-expander {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	vertical-align: top;
+	background-color: red;
+	display: none;
+}
+
+#expenses-heading {
+	position: relative;
+	height: 40px;
+}
+
+#expenses-heading-name {
+	display: inline-block;
+	font-size: 26px;
+	position: absolute;
+	bottom: 5px;
+}
+
+#expenses-heading-type {
+	display: inline-block;
+	font-size: 14px;
+	vertical-align: bottom;
+	position: absolute;
+	bottom: 5px;
+	right: 0px;
+}
+
+
+
+
+
+
+
+
+/*-- Media Queries ------------------------------------------------------------------*/
+@media screen and (max-width: 600px) {
+	#nav-cont {
+		display: none;
+	}
+
+	.nav-control {
+		display: inline-block;
+		margin: 0px;
+		vertical-align: top;
+	}
+
+	#info-cont {
+		/*left: 0px;*/
+	}
+
+	#info-nav-control-cont {
+		display: block;
+	}
+
+	#info-category-cont {
+		height: calc(70vh - 140px);
+	}
+
+	#expenses-cont {
+		width: 100vw;
+		margin-left: 0px;
+	}
+
+	#expenses-table {
+		width: 100%;
+		min-width: 100px;
+	}
+
+	#expenses-heading-nav-expander {
+		display: inline-block;
+	}
+}
 

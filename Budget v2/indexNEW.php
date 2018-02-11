@@ -20,7 +20,7 @@
 	<body>
 		<div id="nav-cont">
 			<div id="nav-control-cont">
-				<div id="nav-control-add-expense" class="nav-control">Add</div>
+				<div id="nav-control-add-expense" class="control-add-expense nav-control">Add</div>
 				<div id="nav-control-spending" class="nav-control">Spend</div>
 				<div id="nav-control-transfer" class="nav-control">Transf</div>
 				<div id="nav-control-recurring" class="nav-control">Recur</div>
@@ -32,6 +32,12 @@
 		</div>
 		
 		<div id="info-cont">
+			<div id="info-nav-control-cont">
+				<div id="info-control-add-expense" class="control-add-expense nav-control">Add</div>
+				<div id="info-control-spending" class="nav-control">Spend</div>
+				<div id="info-control-transfer" class="nav-control">Transf</div>
+				<div id="info-control-recurring" class="nav-control">Recur</div>
+			</div>
 			<div id="info-search-cont">
 				<input id="info-search" type="text" name="info-search" placeholder="Search Expenses">
 				<input id="info-search-submit" type="button" value="Search">
@@ -146,18 +152,34 @@
 		
 		</div>
 
+		<!-- Expenses -->
+		<div id="expenses-cont">
+			<!-- <div class="nav-expander" style="position: absolute; top: 0px; right: 0px; width: 50px; height: 50px; background-color: red;"></div> -->
+
+			<div id="expenses-table">
+				<div id="expenses-heading">
+					<div id="expenses-heading-nav-expander" class="nav-expander"></div>
+					<div id="expenses-heading-name">Checking</div>
+					<div id="expenses-heading-type">Account</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Forms -->
 		<div id="form-cont">
 
 			<div id="form-add-expense" class="form">
 				<div class="form-title">Add Item</div>
 				<div class="form-heading">Date</div>
-				<input class="form-input" type="text" value="12/31/2017">
+				<input class="form-input form-date" type="text" value="12/31/2017">
+				<input type="button" class="button cal-button" value="Cal">
 				<div class="form-heading">Description</div>
 				<input class="form-input" type="text" value="Description">
 				<div class="form-heading">Amount</div>
 				<input class="form-input" type="text" value="125.50">
 				<div class="form-heading">Category</div>
-				<select class="form-input">
+				<select class="form-input form-category">
 					<option value="1">Misc</option>
 					<option value="2">Groceries</option>
 					<option value="3">Rent</option>
@@ -180,9 +202,12 @@
 					<input class="form-button-cancel button" type="button" value="Cancel">
 					<input class="form-button-submit button" type="button" value="Submit">
 				</div>
-
 			</div>
-		</div>
 
+
+		</div>
+		
+
+		<div id="overlay-back"></div>
 	</body>
 </html>
