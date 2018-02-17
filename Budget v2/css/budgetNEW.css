@@ -53,6 +53,64 @@ table {
 	opacity: 0;
 }
 
+#overlay-back-sub {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 100vh;
+	width: 100vw;
+	z-index: 1400;
+	transition: opacity 0.5s;
+	transition-duration: 0.5s;
+	/*display: none;*/
+	background-color: black;
+	opacity: 0;
+}
+
+input::placeholder {
+	font-size: 0.8em;
+	color: darkgray;
+}
+
+#notification-cont {
+	position: fixed;
+	top: 0px;
+	z-index: 1800;
+}
+
+.notification {
+	transition: top 0.5s;
+	position: absolute;
+	top: -50px;
+	width: calc(100vw - 170px);
+	left: 110px;
+    box-sizing: border-box;
+    padding: 15px;
+    box-shadow: 2px 2px 5px rgba(40,40,40,0.6);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.green {
+	background-color: #63c763;
+	color: white;
+    text-shadow: 0px 0px 0px black;
+    border: 2px solid #a7ffa7;
+    box-shadow: 2px 2px 15px rgba(40,40,40,0.6);
+}
+
+.red {
+	background-color: #da7777;
+	color: white;
+    text-shadow: 0px 0px 0px black;
+    border: 2px solid #ffadad;
+    box-shadow: 2px 2px 15px rgba(40,40,40,0.6);
+}
+
+
+
+
+
 /*-- Navigation Bar -------------------------------------------------------------------*/
 #nav-cont {
 	position: fixed;
@@ -167,6 +225,24 @@ table {
 	box-sizing: border-box;
 }
 
+.info-item-add {
+	position: absolute;
+	right: 0px;
+	width: 40px;
+	height: 100%;
+	user-select: none;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-size: 25px;
+	line-height: 22px;
+	margin: 0px;
+}
+
+.info-item-add:hover {
+	background-color: #545454;
+}
+
 .info-item-title-cont {
 	background-color: #333;
 	color: white;
@@ -175,6 +251,7 @@ table {
 	padding: 0px 5px;
 	height: 30px;
 	line-height: 30px;
+	position: relative;
 }
 
 .info-item-head {
@@ -195,10 +272,48 @@ table {
 }
 
 #info-nav-control-cont {
-	height: 50px;
-	width: 100%;
+	/*height: 50px;
+	width: 100%;*/
+	background-color: #333;
+	height: 60px;
+	width: calc(100% + 30px);
+	position: relative;
+	top: -15px;
+	left: -15px;
+	box-sizing: border-box;
+	padding: 10px 15px;
 	display: none;
 }
+
+.nav-control-small {
+	display: inline-block;
+	/*margin-right: 11.7%;*/
+	margin-right: 10px;
+}
+
+.nav-control-small:last-child {
+	margin-right: 0px;
+}
+
+.info-close {
+	position: absolute;
+    right: 0px;
+    top: 0px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 55px;
+    height: 60px;
+    text-align: center;
+    line-height: 59px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.info-close:hover {
+	background: #545454;
+}
+
 
 
 
@@ -229,6 +344,8 @@ table {
 	padding: 15px;
 	background-color: #333;
 	color: white;
+	height: 55px;
+	box-sizing: border-box;
 }
 
 .form-heading {
@@ -242,7 +359,35 @@ table {
 	padding: 3px 5px;
 	box-sizing: border-box;
 	font-size: 14px;
-	margin-bottom: 15px;
+	/*margin-bottom: 15px;*/
+	padding-right: 27px;
+	border: 1px solid gray;
+    height: 26px;
+    border-radius: 2px;
+}
+
+.form-input-reset {
+	position: absolute;
+    color: #5a5a5a;
+    top: 23px;
+    right: 0px;
+    width: 28px;
+    text-align: center;
+    height: 26px;
+    line-height: 21px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.5;
+}
+
+.form-input-reset-cal {
+	right: 55px;
+}
+
+.form-input-reset:hover {
+	opacity: 1;
 }
 
 .form-date {
@@ -250,9 +395,17 @@ table {
 	margin-right: -5px;
 }
 
+
+.form-date, .form-number {
+    color: transparent;
+  	text-shadow: 0 0 0 black;
+}
+
+
 .form-new-cat-cont {
 	padding: 2px 15px;
-	margin-bottom: 10px;
+	/*margin-bottom: 10px;*/
+	border: 1px solid gray;
 }
 
 .form-new-cat-box {
@@ -262,6 +415,11 @@ table {
 	background-color: inherit;
 	position: relative;
 	margin-top: 0px;
+}
+
+.form-button-new-cat {
+	width: 165px;
+	text-align: center;
 }
 
 .form-buttons {
@@ -282,6 +440,105 @@ table {
 	left: 0px;
 	bottom: 0px;
 }
+
+.form-error {
+    font-size: 13px;
+    font-style: italic;
+    color: red;
+    height: 0px;
+    transition: height 0.5s;
+    overflow: hidden;
+    position: absolute;
+    top: 47px;
+    text-shadow: 0px 0px 0.1px #00000070;
+}
+
+.form-error-outline {
+	box-shadow: inset 0px 0px 5px #ff5252;
+}
+
+.form-item {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+
+#form-alert-cont {
+	width: 100%;
+	height: 200px;
+	background-color: red;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.form-input[type="button"] {
+	padding-right: 0px;
+}
+
+.form-test {
+	width: 100%;
+	height: 25px;
+	border: 1px solid gray;
+	background-color: white;
+	border-radius: 2px;
+	margin-top: 20px;
+	font-size: 14px;
+    line-height: 23px;
+    padding: 0px 6px;
+    box-sizing: border-box;
+}
+
+.form-test-active {
+	box-shadow: 0px 0px 3px 0.2px #ff9a02;
+}
+
+.form-close {
+	position: absolute;
+    right: 0px;
+    top: 0px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    line-height: 51px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.form-close:hover {
+	background: #545454;
+}
+
+.form-delete-box {
+	position: relative;
+	overflow: hidden;
+	transition: all 0.5s;
+	background-color: inherit;
+	margin-top: 0px;
+	height: 0px;
+}
+
+.form-delete-cont {
+	padding: 15px;
+	border: 1px solid gray;
+}
+
+.form-delete-cancel {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+}
+
+.form-delete-submit {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+}
+
+
 
 
 
@@ -420,19 +677,18 @@ table {
 /*-- Expenses ------------------------------------------------------------------*/
 #expenses-cont {
 	width: calc(100% - 50px);
-	height: 100%;
+	height: 100vh;
 	margin-left: 50px;
 	padding: 15px;
 	box-sizing: border-box;
 }
 
-#expenses-table {
-	border: 1px solid black;
+#expenses-border {
 	width: 70%;
 	min-width: 700px;
-	max-width: 1500px;
+	max-width: 1200px;
 	margin: auto;
-	height: 400px;
+	height: 100%;
 	box-sizing: border-box;
 }
 
@@ -443,6 +699,7 @@ table {
 	vertical-align: top;
 	background-color: red;
 	display: none;
+	margin-right: 10px;
 }
 
 #expenses-heading {
@@ -465,6 +722,159 @@ table {
 	bottom: 5px;
 	right: 0px;
 }
+
+#expenses-heading-add-expense {
+	display: none;
+   	position: absolute;
+    right: 0px;
+}
+
+#expenses-table-head-cont {
+	background-color: gray;
+	box-sizing: border-box;
+	height: 30px;
+	width: 100%;
+	color: white;
+	border: 1px solid black;
+}
+
+#expenses-table-head {
+	width: calc(100% - 14px);
+	height: 100%;
+}
+
+.expense-table-heading {
+	display: inline-block;
+	box-sizing: border-box;
+	height: 100%;
+	font-size: 14px;
+	padding-left: 4px;
+	user-select: none;
+	cursor: pointer;
+	line-height: 27px;
+    margin-left: -4px;
+}
+
+.expense-table-heading:first-of-type {
+	margin-left: 0px;
+}
+
+.expense-table-heading:hover {
+	color: black;
+}
+
+.exp-col-delete {
+	width: 5%;
+}
+
+.exp-col-date {
+	width: 15%;
+}
+
+.exp-col-desc {
+	width: 35%;
+}
+
+.exp-col-cat {
+	width: 20%;
+}
+
+.exp-col-amount {
+	width: 12%;
+}
+
+.exp-col-bal {
+	width: 12%;
+	text-align: right;
+}
+
+#expenses-table-body {
+	width: 100%;
+	height: calc(100% - 70px);
+	overflow-y: scroll;
+	background-color: white;
+	border: 1px solid black;
+	border-top: none;
+	box-sizing: border-box;
+}
+
+.exp-delete-checkbox-all {
+    vertical-align: middle;
+    margin: 3px;
+    height: 17px;
+    width: 16px;
+    position: relative;
+    top: -1px;
+    cursor: pointer;
+}
+
+.expense {
+	box-sizing: border-box;
+	border-bottom: 1px solid lightgray;
+	/*height: 25px;*/
+	position: relative;
+}
+
+.expense:hover {
+	background: lightgray;
+}
+
+.expense-body-item {
+	display: inline-block;
+	box-sizing: border-box;
+	/*height: 100%;*/
+	font-size: 12px;
+	padding-left: 4px;
+	cursor: pointer;
+	line-height: 25px;
+    margin-left: -4px;
+
+    vertical-align: middle;
+}
+
+.expense-body-item:first-of-type {
+	margin-left: 0px;
+}
+
+.exp-delete-checkbox {
+    vertical-align: middle;
+    margin: 3px;
+    height: 17px;
+    width: 16px;
+    position: relative;
+    top: -2px;
+    cursor: pointer;
+}
+
+.expense-selected {
+	background-color: lightblue !important;
+}
+
+.exp-col-cat-small {
+    position: absolute;
+    left: 0px;
+}
+
+.exp-col-bal-small {
+	position: absolute;
+	right: 0px;
+}
+
+.expense-body-item-small {
+	display: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -494,15 +904,23 @@ table {
 	}
 
 	#info-category-cont {
-		height: calc(70vh - 140px);
+		height: calc(70vh - 160px);
 	}
 
+	.notification {
+		width: calc(100vw - 30px);
+		left: 15px;
+	}
+
+
+
+	/*-- Expenses --------------------------------*/
 	#expenses-cont {
 		width: 100vw;
 		margin-left: 0px;
 	}
 
-	#expenses-table {
+	#expenses-border {
 		width: 100%;
 		min-width: 100px;
 	}
@@ -510,5 +928,42 @@ table {
 	#expenses-heading-nav-expander {
 		display: inline-block;
 	}
+
+	#expenses-table-head {
+		width: 100%;
+	}
+
+	.exp-col-delete {
+		width: 8%;
+	}
+
+	.exp-col-date {
+		width: 21%;
+	}
+
+	.exp-col-desc {
+		width: 45%;
+	}
+
+	.exp-col-amount {
+		width: 25%;
+	}
+
+	.exp-col-bal, .exp-col-cat {
+		display: none;
+	}
+
+	#expenses-heading-type {
+		display: none;
+	}
+
+	#expenses-heading-add-expense {
+		display: inline-block;
+	}
+
+	.expense-body-item-small {
+		/*display: block;*/
+	}
+
 }
 
